@@ -1,0 +1,25 @@
+<div class="mt-3 p-3 card">
+  <div class="h4">
+    Histórico recente de alterações
+  </div>
+  <table class="table">
+    <thead>
+    <tr>
+      <th scope="col">Código</th>
+      <th scope="col">Ação</th>
+      <th scope="col">Alteração</th>
+      <th scope="col">Data</th>
+    </tr>
+    </thead>
+    <tbody>
+      <% items.each do |item| %>
+        <tr>
+          <th scope="row"><%= item.id %></th>
+          <th scope="row"><%= t(item.action) %></th>
+          <td><%= item.audited_changes %></td>
+          <td><%= parse_timestamp(item.created_at) %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,9 @@
+<%= turbo_stream.replace "remote_modal" do %>
+  <%= render partial: "panel/v1/municipes/shared/form_modal", locals: { item: @municipe, item_path: panel_v1_municipes_path, item_method: :put } %>
+<% end %>
+
+<% unless @item.errors.present? %>>
+  <%= turbo_stream.replace "modal_alert" do %>
+    <%= render partial: "panel/v1/shared/alert", locals: { message: 'Enviado com sucesso', type: 'success' } %>
+  <% end %>
+<% end %>

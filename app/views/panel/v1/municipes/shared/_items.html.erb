@@ -1,0 +1,24 @@
+<%= paginate items %>
+<table class="table">
+  <thead>
+  <tr>
+    <th scope="col">#</th>
+    <th scope="col">Nome Completo</th>
+    <th scope="col">CPF</th>
+    <th scope="col">CNS</th>
+    <th scope="col">Fone</th>
+    <th scope="col">E-mail</th>
+    <th scope="col">Status</th>
+    <th scope="col"><i class="fa fa-cog"></i></th>
+  </tr>
+  </thead>
+  <tbody>
+    <% items.each do |item| %>
+      <tr id="municipe-<%= item.id %>">
+        <%= render partial: 'panel/v1/municipes/shared/item', locals: { item: item } %>
+      </tr>
+    <% end %>
+
+  </tbody>
+</table>
+<%= paginate items %>

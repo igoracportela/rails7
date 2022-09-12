@@ -1,0 +1,10 @@
+<div class="row p-3">
+  <%= link_to new_panel_v1_municipe_path, "data-controller": "turbo", class: 'btn btn-primary' do %>
+    <i class="fa fa-plus"></i> Add Citizen
+  <% end %>
+</div>
+
+<%= turbo_frame_tag :municipes do %>
+  <%= render partial: 'panel/v1/municipes/shared/items', locals: { items: @items } %>
+<% end %>
+

@@ -1,0 +1,19 @@
+<%= turbo_frame_tag :remote_modal, target: :_top do %>
+  <div class="modal" tabindex="-1" data-controller="modal">
+    <div class="modal-dialog modal-xl">
+      <div class="modal-content">
+        <%= turbo_frame_tag :modal_alert %>
+        <div class="modal-header">
+          <h4 class="modal-title">
+            <%= image_tag(url_for(item.picture.variant(:thumb) || Figaro.env.application_brand), class: 'rounded-circle', width: '60', height: '60') %>
+            <%= item.full_name || 'Cadastro de munícipe' %>
+          </h4>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <%= render partial: "panel/v1/municipes/shared/form", locals: { item: item, item_path: item_path, item_method: item_method } %>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>

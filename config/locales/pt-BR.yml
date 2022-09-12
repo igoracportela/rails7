@@ -1,0 +1,110 @@
+pt-BR:
+  and: 'e'
+  active: 'Ativo'
+  inactive: 'Inativo'
+  create: 'Criado'
+  update: 'Atualizado'
+  thumb: 'Pequeno'
+  square: 'Quadrado'
+  portrait: 'Vertical'
+  landscape: 'Horizontal'
+  activerecord:
+    attributes:
+      municipe:
+        full_name: 'Nome completo'
+        birthdate: 'Data nascimento'
+        document_cpf: 'Documento CPF'
+        document_cns: 'Documento CNS'
+        phone: 'Fone'
+        email: 'E-mail'
+        picture: 'Foto'
+      address:
+        street_name: 'Nome da rua'
+        number: 'Número'
+        neighborhood: 'Bairro'
+        city: 'Cidade'
+        state: 'Estado'
+        zip_code: 'CEP'
+        complement: 'Complemento'
+        ibge_code: 'Código IBGE'
+    errors:
+      models:
+        municipe:
+          attributes:
+              full_name:
+                too_short: 'Muito curto'
+                too_long: 'Muito longo'
+                required: 'Requerido'
+              document_cpf:
+                too_short: 'Muito curto'
+                too_long: 'Muito longo'
+                required: 'Requerido'
+                invalid: 'Inválido'
+                invalid_format: 'Formato inválido'
+              document_cns:
+                too_short: 'Muito curto'
+                too_long: 'Muito longo'
+                required: 'Requerido'
+                invalid: 'Inválido'
+                invalid_format: 'Formato inválido'
+              email:
+                too_short: 'Muito curto'
+                too_long: 'Muito longo'
+                required: 'Requerido'
+                invalid: 'Inválido'
+                invalid_format: 'Formato inválido'
+              picture:
+                too_short: 'Muito curto'
+                too_long: 'Muito longo'
+                required: 'Requerido'
+                invalid: 'Inválido'
+                invalid_format: 'Formato inválido'
+              phone:
+                too_short: 'Muito curto'
+                too_long: 'Muito longo'
+                required: 'Requerido'
+                invalid: 'Inválido'
+                invalid_format: 'Formato inválido'
+              ddd:
+                too_short: 'Muito curto'
+                too_long: 'Muito longo'
+                required: 'Requerido'
+                invalid: 'Inválido'
+                invalid_format: 'Formato inválido'
+              ddi:
+                too_short: 'Muito curto'
+                too_long: 'Muito longo'
+                required: 'Requerido'
+                invalid: 'Inválido'
+                invalid_format: 'Formato inválido'
+
+        address:
+          attributes:
+              zip_code:
+                too_short: 'Muito curto'
+                too_long: 'Muito longo'
+                required: 'Requerido'
+                invalid_format: 'Formato inválido'
+                max_length: 'Tamanho máximo inválido'
+                min_length: 'Tamanho mínimo inválido'
+                data_not_found: 'Nenhum dado localizado'
+              street_name:
+                too_short: 'Muito curto'
+                too_long: 'Muito longo'
+                required: 'Requerido'
+              number:
+                too_short: 'Muito curto'
+                too_long: 'Muito longo'
+                required: 'Requerido'
+              neighborhood:
+                too_short: 'Muito curto'
+                too_long: 'Muito longo'
+                required: 'Requerido'
+              city:
+                too_short: 'Muito curto'
+                too_long: 'Muito longo'
+                required: 'Requerido'
+              state:
+                too_short: 'Muito curto'
+                too_long: 'Muito longo'
+                required: 'Requerido'

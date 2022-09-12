@@ -1,0 +1,3 @@
+<%= turbo_stream.replace "address_form_container" do %>
+  <%= render partial: "panel/v1/municipe_addresses/shared/form", locals: { item: @item, item_path: panel_v1_municipe_municipe_addresses_path(@municipe), item_method: :post } %>
+<% end %>

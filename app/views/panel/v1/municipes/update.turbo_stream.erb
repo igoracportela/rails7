@@ -1,0 +1,13 @@
+<%= turbo_stream.update "remote_modal" do %>
+  <%= render partial: "panel/v1/municipes/shared/form_modal", locals: { item: @item, item_path: panel_v1_municipe_path(@item), item_method: :put } %>
+<% end %>
+
+<%= turbo_stream.update "municipe-#{@item.id}" do %>
+  <%= render partial: "panel/v1/municipes/shared/item", locals: { item: @item } %>
+<% end %>
+
+<% unless @item.errors.present? %>
+  <%= turbo_stream.update "modal_alert" do %>
+    <%= render partial: "panel/v1/shared/alert", locals: { message: 'Enviado com sucesso', type: 'success' } %>
+  <% end %>
+<% end %>

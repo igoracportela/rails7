@@ -1,0 +1,14 @@
+<td>
+  <%= image_tag(url_for(item.picture.variant(:thumb)), class: 'rounded-circle', width: '60', height: '60') %>
+</td>
+<th scope="row"><%= item.full_name %></th>
+<td><%= cpf_format(item.document_cpf) %></td>
+<td><%= item.document_cns %></td>
+<td><%= phone_format(item.formatted_phone) %></td>
+<td><%= item.email %></td>
+<td><%= t(item.status) %></td>
+<td>
+  <%= link_to edit_panel_v1_municipe_path(item, format: :turbo_stream), "data-controller": "turbo", class: 'btn btn-outline-primary' do %>
+    <i class="fa fa-pencil"></i>
+  <% end %>
+</td>

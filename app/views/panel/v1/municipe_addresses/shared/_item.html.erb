@@ -1,0 +1,12 @@
+<div class="card p-2 mb-3">
+  <div class="row">
+    <div class="col p-3 fw-bold">
+      <%= item.formatted_address %>
+    </div>
+    <div class="col-2 p-3 text-center">
+      <%= link_to edit_panel_v1_municipe_municipe_address_path(item.ownereable, item, format: :turbo_stream), "data-controller": "turbo", class: 'btn btn-outline-primary' do %>
+        <i class="fa fa-pencil"></i>
+      <% end %>
+    </div>
+  </div>
+</div>

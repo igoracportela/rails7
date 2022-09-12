@@ -1,0 +1,25 @@
+production:
+  application_name: 'rails7'
+  application_brand: 'https://rails7.com.br/wp-content/uploads/2021/02/logo.png'
+  application_host: 'rails7.com.br'
+  application_no_reply_mail: 'no-reply@rails7.com.br'
+  application_contact_mail: 'contact@rails7.com.br'
+
+  mail_host: <%= MAIL_HOST %>
+  mail_port: '587'
+  mail_user_name: <%= MAIL_USER_NAME %>
+  mail_password: <%= MAIL_PASSWORD %>
+
+  sms_api_host: <%= SMS_API_HOST %>
+  sms_api_token: <%= SMS_API_TOKEN %>
+
+  redis_url: <%= REDIS_URL %>
+
+  zip_code_api_host: <%= ZIP_CODE_API_HOST %>
+  zip_code_api_token: <%= ZIP_CODE_API_TOKEN %>
+
+  cpf_api_host: <%= CPF_API_HOST %>
+  cpf_api_token: <%= CPF_API_TOKEN %>
+
+  algolia_application_id: <%= ALGOLIA_APP_ID %>
+  algolia_api_key: <%= ALGOLIA_APP_KEY %>

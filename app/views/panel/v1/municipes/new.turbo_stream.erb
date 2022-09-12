@@ -1,0 +1,3 @@
+<%= turbo_stream.replace "remote_modal" do %>
+  <%= render partial: "panel/v1/municipes/shared/form_modal", locals: { item: @item, item_path: panel_v1_municipes_path, item_method: :post } %>
+<% end %>

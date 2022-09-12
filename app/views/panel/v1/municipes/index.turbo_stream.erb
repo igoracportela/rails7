@@ -1,0 +1,3 @@
+<%= turbo_stream.update "municipes" do %>
+  <%= render partial: "panel/v1/municipes/shared/items", locals: { items: @items } %>
+<% end %>

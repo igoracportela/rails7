@@ -1,0 +1,7 @@
+<% unless items.present? %>
+  <%= render partial: "panel/v1/shared/alert", locals: { message: 'There is no registered address for this citizen.', type: 'info' } %>
+<% end %>
+
+<% items.each do |item| %>
+  <%= render partial: 'panel/v1/municipe_addresses/shared/item', locals: { item: item } %>
+<% end %>

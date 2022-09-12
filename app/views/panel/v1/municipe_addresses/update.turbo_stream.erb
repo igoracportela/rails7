@@ -1,0 +1,13 @@
+<% if @item.errors.present? %>
+  <%= turbo_stream.update "address_form_container" do %>
+    <%= render partial: "panel/v1/municipe_addresses/shared/form", locals: { item: @item, item_path: panel_v1_municipe_municipe_address_path(@municipe, @item), item_method: :put } %>
+  <% end %>
+<% else %>
+  <%= turbo_stream.update "remote_modal" do %>
+    <%= render partial: "panel/v1/municipes/shared/form_modal", locals: { item: @municipe, item_path: panel_v1_municipes_path, item_method: :put } %>
+  <% end %>
+
+  <%= turbo_stream.update "modal_alert" do %>
+    <%= render partial: "panel/v1/shared/alert", locals: { message: 'Enviado com sucesso', type: 'success' } %>
+  <% end %>
+<% end %>

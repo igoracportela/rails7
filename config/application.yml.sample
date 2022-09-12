@@ -1,0 +1,25 @@
+development:
+  application_name: 'Develop'
+  application_brand: 'https://rails7.com.br/wp-content/uploads/2021/02/logo.png'
+  application_host: 'rails7.com.br'
+  application_no_reply_mail: 'no-reply@rails7.com.br'
+  application_contact_mail: 'contact@rails7.com.br'
+
+  mail_host: ''
+  mail_port: '587'
+  mail_user_name: ''
+  mail_password: ''
+
+  sms_api_host: ''
+  sms_api_token: ''
+
+  redis_url: 'redis://127.0.0.1:6379/1'
+
+  zip_code_api_host: ''
+  zip_code_api_token: ''
+
+  cpf_api_host: ''
+  cpf_api_token: ''
+
+  algolia_application_id: ''
+  algolia_api_key: ''

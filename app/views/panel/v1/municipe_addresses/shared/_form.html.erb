@@ -1,0 +1,56 @@
+<% if item.errors.present? %>
+  <div class="alert alert-danger">
+    <%= item.errors.full_messages.to_sentence.capitalize %>
+  </div>
+<% end %>
+
+<div class="mb-3">
+  <%= form_for item, scope: :session, url: item_path, method: item_method do |form| %>
+    <div class="row mb-3">
+      <div class="col-9">
+        <label class="form-label">Street</label>
+        <%= form.text_field :street_name, class: 'form-control fw-bold', placeholder: 'Enter your street', required: true %>
+      </div>
+      <div class="col-3">
+        <label class="form-label">Number</label>
+        <%= form.text_field :number, class: 'form-control', placeholder: 'Enter your number', required: true %>
+      </div>
+    </div>
+    <div class="row mb-3">
+      <div class="col">
+        <label class="form-label">Neighborhood</label>
+        <%= form.text_field :neighborhood, class: 'form-control', placeholder: 'Enter your neighborhood', required: true %>
+      </div>
+    </div>
+    <div class="row mb-3">
+      <div class="col-8">
+        <label class="form-label">City</label>
+        <%= form.text_field :city, class: 'form-control', placeholder: 'Enter your city', required: true %>
+      </div>
+      <div class="col">
+        <label class="form-label">State</label>
+        <%= form.select :state, Address::states.map { |index| [index.first.to_s.capitalize, index.first] }, {}, { class: "form-control" } %>
+      </div>
+    </div>
+    <div class="row mb-3">
+      <div class="col">
+        <label class="form-label">Zip</label>
+        <%= form.text_field :zip_code, class: 'form-control', placeholder: 'Enter your zip code' %>
+      </div>
+      <div class="col">
+        <label class="form-label">Ibge code</label>
+        <%= form.text_field :ibge_code, class: 'form-control fw-bold', placeholder: 'Enter your ibge code' %>
+      </div>
+    </div>
+    <div class="row mb-3">
+      <div class="col">
+        <label class="form-label">Complement</label>
+        <%= form.text_field :complement, class: 'form-control', placeholder: 'Enter your complement' %>
+      </div>
+    </div>
+
+    <div class="d-grid gap-2">
+      <%= form.submit "Send", class: 'btn btn-primary' %>
+    </div>
+  <% end %>
+</div>

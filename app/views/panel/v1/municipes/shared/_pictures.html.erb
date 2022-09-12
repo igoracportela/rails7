@@ -1,0 +1,23 @@
+<div class="mt-3 p-3 card">
+  <div class="h4">
+    Imagens
+  </div>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Tamanho</th>
+        <th scope="col" class="text-center"><i class="fa fa-cog"></i></th>
+      </tr>
+    </thead>
+    <tbody>
+    <% item.picture_variants.to_a.each do |variant| %>
+      <tr>
+        <th><%= t(variant) %></th>
+        <td class="text-center">
+          <%= link_to 'Visualizar', url_for(item.picture.variant(variant.to_sym)), target: '_blank' %>
+        </td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,92 @@
+<% if item.errors.present? %>
+  <div class="alert alert-danger">
+    <%= item.errors.full_messages.to_sentence.capitalize %>
+  </div>
+<% end %>
+<div class="row">
+  <div class="col">
+    <%= form_for item, scope: :session, url: item_path, method: item_method do |form| %>
+      <div class="row mb-3">
+        <div class="col-8">
+          <label class="form-label">Nome completo</label>
+          <%= form.text_field :full_name, class: 'form-control fw-bold', placeholder: 'Nome completo', required: true %>
+        </div>
+        <div class="col-4">
+          <label class="form-label">Nascimento</label>
+          <%= form.text_field :birthdate, type: :date, class: 'form-control', placeholder: 'Data nascimento', required: true %>
+        </div>
+      </div>
+      <div class="row mb-3">
+        <div class="col">
+          <label class="form-label">CPF</label>
+          <%= form.text_field :document_cpf, class: 'form-control', placeholder: 'CPF', required: true %>
+        </div>
+        <div class="col">
+          <label class="form-label">CNS</label>
+          <%= form.text_field :document_cns, class: 'form-control', placeholder: 'CNS', required: true %>
+        </div>
+      </div>
+      <div class="row mb-3">
+        <div class="col">
+          <label class="form-label">Ddi</label>
+            <%= form.text_field :ddi, class: 'col form-control', placeholder: 'Ddi', required: true %>
+        </div>
+        <div class="col">
+          <label class="form-label">Ddd</label>
+            <%= form.text_field :ddd, class: 'col form-control', placeholder: 'Ddd', required: true %>
+        </div>
+        <div class="col-3">
+          <label class="form-label">Fone</label>
+            <%= form.text_field :phone, class: 'col form-control', placeholder: 'Fone', required: true %>
+        </div>
+        <div class="col-6">
+          <label class="form-label">E-mail</label>
+          <%= form.text_field :email, type: :email, class: 'form-control', placeholder: 'E-mail', required: true, accept: "image/png, image/jpeg" %>
+        </div>
+      </div>
+      <div class="row mb-3">
+        <div class="col">
+          <label class="form-label">Foto</label>
+          <%= form.file_field :picture, class: 'form-control', placeholder: 'E-mail', required: item_method.eql?(:put) ? false : true %>
+        </div>
+        <div class="col">
+          <label class="form-label">Status</label>
+          <%= form.select :status, Municipe::statuses.map { |index| [t(index.second), index.first] }, {}, { class: "form-control" } %>
+        </div>
+      </div>
+
+      <div class="d-grid gap-2">
+        <%= form.submit "Enviar", class: 'btn btn-primary' %>
+      </div>
+    <% end %>
+
+    <% if item_method.eql?(:put) %>
+      <%= render partial: 'panel/v1/municipes/shared/pictures', locals: { item: item } %>
+      <%= render partial: 'panel/v1/municipes/shared/audits', locals: { items: item.audits.limit(50).reverse } %>
+    <% end %>
+  </div>
+
+  <% if item_method.eql?(:put) %>
+    <div class="col-5">
+      <div class="mb-3">
+        <%= form_with(url: panel_v1_municipe_search_zip_code_path(item), method: :get) do |form| %>
+          <div class="row">
+            <div class="col">
+              <%= form.text_field :zip_code, class: 'form-control fw-bold text-center', placeholder: 'Cep do endereço', required: true, name: :zip_code %>
+            </div>
+            <div class="col-auto">
+              <%= form.submit "Consultar Cep", class: 'btn btn-outline-primary', data: { disable_with: false } %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+
+      <%= turbo_frame_tag :address_form_container do %>
+      <% end %>
+
+      <%= turbo_frame_tag :municipe_addresses do %>
+        <%= render partial: 'panel/v1/municipe_addresses/shared/items', locals: { items: item.addresses } %>
+      <% end %>
+    </div>
+  <% end %>
+</div>

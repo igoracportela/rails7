@@ -1,0 +1,53 @@
+<nav class="navbar navbar-expand-lg bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="?">
+      <img src="<%= Figaro.env.application_brand %>" alt="" width="30" height="24" class="d-inline-block align-text-top">
+      <%= Figaro.env.application_name %>
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <% if @has_menu_actions.present? %>
+          <li class="nav-item">
+            <%= link_to 'Home', root_path, class: 'nav-link active' %>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Registros
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li>
+                <%= link_to 'Citizen', panel_v1_municipes_path, class: 'dropdown-item' %>
+              </li>
+            </ul>
+          </li>
+        <% else %>
+          <li class="nav-item">
+            <%= link_to 'Admin', panel_v1_root_path, class: 'nav-link' %>
+          </li>
+        <% end %>
+      </ul>
+
+      <% if @has_menu_actions.present? and controller_name.to_s.downcase.eql?('municipes') %>
+        <%= form_with(url: panel_v1_municipes_path, method: :get, class: 'd-flex') do |form| %>
+          <div class="row">
+            <div class="col">
+              <%= form.text_field :query, class: 'me-2 form-control fw-bold text-center', placeholder: 'Search...', name: :query, value: params[:query] %>
+            </div>
+            <div class="col-auto">
+              <%= form.submit "Search", class: 'btn btn-outline-primary' %>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</nav>
+
+<nav aria-label="breadcrumb" class="p-3">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item active" aria-current="page"><%= controller_name.to_s.capitalize %></li>
+  </ol>
+</nav>
